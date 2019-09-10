@@ -1,0 +1,51 @@
+$max-width: 1100px;
+$primary-color: #eec643;
+$secondary-color: #1b2f33;
+$tertiary-color: #00fddc;
+$dark-color: #0f0326;
+$light-color: #f4f4f4;
+$mtg-white: #fffdd7;
+$mtg-blue: #00aaf9;
+$mtg-black: #262525;
+$mtg-red: #ed5f55;
+$mtg-green: #69d38d;
+
+// Set text color based on background
+@function set-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return #333;
+  } @else {
+    @return #fff;
+  }
+}
+
+// Set background and text color
+@mixin set-background($color) {
+  background-color: $color;
+  color: set-text-color($color);
+}
+
+// Margin & Padding
+$spaceamounts: (1, 2, 3, 4, 5);
+
+@each $space in $spaceamounts {
+  // All around margin
+  .m-#{$space} {
+    margin: #{$space}rem;
+  }
+
+  // Vertical margin
+  .my-#{$space} {
+    margin: #{$space}rem 0;
+  }
+
+  // All around padding
+  .p-#{$space} {
+    padding: #{$space}rem;
+  }
+
+  // Vertical padding
+  .py-#{$space} {
+    padding: #{$space}rem 0;
+  }
+}

@@ -1,0 +1,119 @@
+// Container
+.container {
+  width: $max-width;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 2rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+// Text styles
+.x-large {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.large {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.small {
+  font-size: 0.75rem;
+}
+
+.lead {
+  font-size: 1.5rem;
+}
+
+.text-primary {
+  color: $primary-color;
+}
+
+.text-secondary {
+  color: $secondary-color;
+}
+
+.text-tertiary {
+  color: $tertiary-color;
+}
+
+// Line
+.line {
+  height: 1px;
+  background: #ccc;
+  margin: 0.5rem 0;
+}
+
+// Backgrounds
+.bg {
+  &-primary {
+    @include set-background($primary-color);
+  }
+
+  &-secondary {
+    @include set-background($secondary-color);
+  }
+
+  &-tertiary {
+    @include set-background($tertiary-color);
+  }
+
+  &-light {
+    @include set-background($light-color);
+    border: #ccc 1px solid;
+  }
+
+  &-dark {
+    @include set-background($dark-color);
+  }
+
+  &-white {
+    @include set-background(#fff);
+    border: #ccc 1px solid;
+  }
+}
+
+// Buttons
+.btn {
+  display: inline-block;
+  background: $light-color;
+  color: #333;
+  padding: 0.4rem 1.3rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  outline: none;
+  transition: all 0.2s ease-in;
+
+  &.btn-primary {
+    @include set-background($primary-color);
+    &:hover {
+      background: darken($primary-color, 15%);
+    }
+  }
+
+  &.btn-secondary {
+    @include set-background($secondary-color);
+    &:hover {
+      background: lighten($secondary-color, 10%);
+    }
+  }
+
+  &.btn-dark {
+    @include set-background($dark-color);
+    &:hover {
+      background: lighten($dark-color, 5%);
+    }
+  }
+
+  &:hover {
+    background: lighten($dark-color, 20%);
+    color: #fff;
+  }
+}

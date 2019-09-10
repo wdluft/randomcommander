@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>RandoCommando</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.min.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-tertiary x-large main-title">Random Commander</h1>
+      <button id="getRandomBtn" class="btn btn-primary">
+        Get Random Commander
+      </button>
+      <div id="card-info" style="display:none">
+        <div class="card-section-1">
+          <img id="card-img" class="my-1" src="" alt="" />
+        </div>
+        <div class="card-section-2 bg-light">
+          <h2 id="card-name" class="lead"></h2>
+          <p id="card-type"></p>
+          <p id="mana-cost"></p>
+          <p id="color-id"></p>
+          <p id="oracle-text"></p>
+          <p id="edh-rec"></p>
+        </div>
+        <a
+          href="https://twitter.com/intent/tweet"
+          class="btn btn-primary twitter-btn my-1"
+          target="_blank"
+          >Tweet Your Commander</a
+        >
+      </div>
+    </div>
+
+    <footer class="bg-secondary">
+      <p>
+        Made by:
+        <a href="https://twitter.com/iamwilldl" target="_blank"
+          ><span class="fab fa-twitter"></span> Will Luft</a
+        >
+      </p>
+      <div class="line"></div>
+      <p class="small">
+        Card images and text are from
+        <a href="https://scryfall.com/" target="_blank">Scryfall</a>
+      </p>
+      <div class="line"></div>
+      <p class="small">
+        The literal and graphical information presented on this site about
+        Magic: The Gathering, including card images, the mana symbols, and
+        Oracle text, is copyright Wizards of the Coast, LLC, a subsidiary of
+        Hasbro, Inc. This is not produced by, endorsed by, supported by, or
+        affiliated with Wizards of the Coast
+      </p>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>

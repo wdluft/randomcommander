@@ -47,6 +47,12 @@
   height: 1px;
   background: #ccc;
   margin: 0.5rem 0;
+
+  &-dark {
+    background: #333;
+    height: 1px;
+    width: 75%;
+  }
 }
 
 // Backgrounds

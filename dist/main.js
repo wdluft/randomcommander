@@ -1,14 +1,14 @@
 const body = document.querySelector('body');
 const btn = document.getElementById('getRandomBtn');
 const cardImg = document.getElementById('card-img');
-const cardName = document.getElementById('card-name');
-const colorId = document.getElementById('color-id');
-const oracle = document.getElementById('oracle-text');
-const cardType = document.getElementById('card-type');
-const manaCost = document.getElementById('mana-cost');
-const edhrec = document.getElementById('edh-rec');
-const twitterBtn = document.querySelector('.twitter-btn');
 const cardInfo = document.querySelector('#card-info');
+const cardManaCost = document.getElementById('mana-cost');
+const cardName = document.getElementById('card-name');
+const cardType = document.getElementById('card-type');
+const colorId = document.getElementById('color-id');
+const edhrec = document.getElementById('edh-rec');
+const oracle = document.getElementById('oracle-text');
+const twitterBtn = document.querySelector('.twitter-btn');
 
 const scryfall = 'https://api.scryfall.com/cards/random?q=is%3Acommander';
 
@@ -78,33 +78,42 @@ function setBackground(colorArr) {
   }
 }
 
-function getImg() {
-  fetch(scryfall)
-    .then(response => response.json())
-    .then(data => {
-      cardInfo.style.display = 'grid';
-      console.log(data);
-      let colorIdentity = '';
-      data.color_identity.forEach(color => {
-        colorIdentity += color;
-      });
-      cardImg.src = data.image_uris.png;
-      cardName.innerText = data.name;
-      colorId.innerText = `Color Identity: ${colorIdentity}`;
-      manaCost.innerText = `Mana Cost: ${data.mana_cost}`;
-      cardType.innerText = data.type_line;
-      oracle.innerText = `Oracle Text: \n ${data.oracle_text}`;
-      edhrec.innerHTML = `<a href='${data.related_uris.edhrec}' class='btn btn-secondary' target="_blank">EDHREC</a>`;
-      // twitterBtn.dataset.text = `My random commander is ${data.name}`;
-      twitterBtn.setAttribute(
-        'href',
-        `https://twitter.com/intent/tweet?text=My random commander is ${
-          data.name
-        }. From&url=https://randomcommander.com`
-      );
-      setBackground(data.color_identity);
-    });
+function showCardInfo(cardData) {
+  const {
+    color_identity: colorIdentityArr,
+    image_uris: imgURLs,
+    name,
+    mana_cost: manaCost,
+    type_line: type,
+    oracle_text: oracleText,
+    related_uris: relatedURLs,
+  } = cardData;
+
+  cardInfo.style.display = 'grid';
+  let colorIdentity = '';
+  colorIdentityArr.forEach(color => {
+    colorIdentity += color;
+  });
+  cardImg.src = imgURLs.png;
+  cardName.innerText = name;
+  colorId.innerText = `Color Identity: ${colorIdentity}`;
+  cardManaCost.innerText = `Mana Cost: ${manaCost}`;
+  cardType.innerText = type;
+  oracle.innerText = `Oracle Text: \n ${oracleText}`;
+  edhrec.innerHTML = `<a href='${relatedURLs.edhrec}' class='btn btn-secondary' target="_blank">EDHREC</a>`;
+  // twitterBtn.dataset.text = `My random commander is ${data.name}`;
+  twitterBtn.setAttribute(
+    'href',
+    `https://twitter.com/intent/tweet?text=My random commander is ${name}. From&url=https://randomcommander.com`
+  );
+  setBackground(colorIdentityArr);
 }
 
-btn.addEventListener('click', getImg);
-// window.onload = getImg();
+async function getCard() {
+  const res = await fetch(scryfall);
+  const data = await res.json();
+  showCardInfo(data);
+}
+
+btn.addEventListener('click', getCard);
+// window.onload = getCard();

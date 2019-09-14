@@ -23,6 +23,98 @@
   }
 }
 
+// Large tables - portrait
+@media (max-width: 1025), screen and (orientation: portrait) {
+  .main-title {
+    font-size: 5rem;
+  }
+
+  #getRandomBtn {
+    font-size: 2.5rem;
+  }
+
+  #card-info {
+    .card-section {
+      &-1 {
+        img {
+          width: 500px;
+        }
+      }
+
+      &-2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    .twitter-btn {
+      font-size: 2rem;
+    }
+  }
+
+  footer {
+    font-size: 1.75rem;
+  }
+}
+
+// Small tablets - portrait mode
+@media (max-width: 800), screen and (orientation: portrait) {
+  .main-title {
+    font-size: 4rem;
+  }
+
+  #getRandomBtn {
+    font-size: 2rem;
+  }
+
+  #card-info {
+    .card-section {
+      &-1 {
+        img {
+          width: 400px;
+        }
+      }
+
+      &-2 {
+        font-size: 1.25rem;
+      }
+    }
+
+    .twitter-btn {
+      font-size: 1.25rem;
+    }
+  }
+
+  footer {
+    font-size: 1.25rem;
+  }
+}
+
+// mobile phones - landscape mode
+@media (max-width: 850), screen and (orientation: landscape) {
+  .main-title {
+    font-size: 3rem;
+  }
+
+  #card-info {
+    .card-section {
+      &-1 {
+        img {
+          width: 250px;
+        }
+      }
+
+      &-2 {
+        #edh-rec {
+          .btn {
+            font-size: 0.75rem;
+            padding: 0.4rem 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
 // Mobile phones - portrait mode
 @media (max-width: 450px) {
   .main-title {

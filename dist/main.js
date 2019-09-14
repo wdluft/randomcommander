@@ -89,6 +89,8 @@ function showCardInfo(cardData) {
     related_uris: relatedURLs,
   } = cardData;
 
+  console.log(cardData);
+
   cardInfo.style.display = 'grid';
   let colorIdentity = '';
   colorIdentityArr.forEach(color => {
@@ -112,7 +114,11 @@ function showCardInfo(cardData) {
 async function getCard() {
   const res = await fetch(scryfall);
   const data = await res.json();
-  showCardInfo(data);
+  if (data.legalities.commander === 'not_legal') {
+    getCard();
+  } else {
+    showCardInfo(data);
+  }
 }
 
 btn.addEventListener('click', getCard);

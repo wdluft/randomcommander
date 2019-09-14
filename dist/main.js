@@ -106,7 +106,7 @@ function showCardInfo(cardData) {
   // twitterBtn.dataset.text = `My random commander is ${data.name}`;
   twitterBtn.setAttribute(
     'href',
-    `https://twitter.com/intent/tweet?text=My random commander is ${name}. From&url=https://randomcommander.com`
+    `https://twitter.com/intent/tweet?text=My random commander is ${name}. Via&url=https://randomcommander.com&hashtags=randomcommander`
   );
   setBackground(colorIdentityArr);
 }

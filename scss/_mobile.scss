@@ -1,5 +1,57 @@
-@media (max-width: 700px) {
+@media (max-width: 1100px) {
   .container {
-    width: 825px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    height: 100%;
+    margin: 0 auto;
+  }
+
+  #card-info {
+    grid-gap: 2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  #card-info {
+    .card-section {
+      &-1 {
+        img {
+          width: 250px;
+        }
+      }
+    }
+  }
+}
+
+// Mobile phones - portrait mode
+@media (max-width: 450px) {
+  .main-title {
+    margin-top: 1rem;
+    font-size: 2rem;
+  }
+
+  #getRandomBtn {
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  #card-info {
+    margin: 0.5rem auto;
+    grid-template-columns: 1fr;
+    grid-gap: 0.5rem;
+
+    .card-section {
+      &-2 {
+        #card-name {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .twitter-btn {
+      grid-column: 1/2;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
   }
 }

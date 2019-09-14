@@ -23,7 +23,7 @@
   }
 }
 
-// Large tables - portrait
+// Large tablets - portrait
 @media (max-width: 1025), screen and (orientation: portrait) {
   .main-title {
     font-size: 5rem;
@@ -57,7 +57,7 @@
 }
 
 // Small tablets - portrait mode
-@media (max-width: 800), screen and (orientation: portrait) {
+@media screen and (max-width: 800) and (orientation: portrait) {
   .main-title {
     font-size: 4rem;
   }
@@ -90,7 +90,7 @@
 }
 
 // mobile phones - landscape mode
-@media (max-width: 850), screen and (orientation: landscape) {
+@media screen and (max-width: 850) and (orientation: landscape) {
   .main-title {
     font-size: 3rem;
   }
@@ -116,7 +116,7 @@
 }
 
 // Mobile phones - portrait mode
-@media (max-width: 450px) {
+@media screen and (max-width: 450px) and (orientation: portrait) {
   .main-title {
     margin-top: 1rem;
     font-size: 2rem;
@@ -133,6 +133,12 @@
     grid-gap: 0.5rem;
 
     .card-section {
+      &-1 {
+        img {
+          width: 250px;
+        }
+      }
+
       &-2 {
         #card-name {
           font-size: 1.2rem;

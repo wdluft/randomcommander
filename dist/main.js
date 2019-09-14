@@ -108,7 +108,6 @@ function showCardInfo(cardData) {
     'href',
     `https://twitter.com/intent/tweet?text=My random commander is ${name}. Via&url=https://randomcommander.com&hashtags=randomcommander`
   );
-  setBackground(colorIdentityArr);
 }
 
 async function getCard() {
@@ -117,7 +116,8 @@ async function getCard() {
   if (data.legalities.commander === 'not_legal') {
     getCard();
   } else {
-    showCardInfo(data);
+    await showCardInfo(data);
+    setBackground(data.color_identity);
   }
 }
 
